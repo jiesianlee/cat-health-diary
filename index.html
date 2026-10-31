@@ -2,9 +2,9 @@
 .auth-box{max-width:420px;margin:55px auto}.error{color:#a43b3b;font-size:13px;white-space:pre-wrap}.ok{color:#28755a}.nav button{padding:8px 5px;flex:1}.nav em{font-size:20px}.loading{text-align:center;padding:35px}.photo{max-width:100%;max-height:200px;border-radius:12px}.chip{display:inline-block;background:#e9f0f3;border-radius:10px;padding:4px 8px}.row{flex-wrap:wrap}.entry button{margin:2px}textarea{min-height:75px}button:disabled{opacity:.5}#toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);max-width:440px;width:90%;background:#39454b;color:white;padding:13px;border-radius:12px;display:none;z-index:1000}#auth{max-width:480px;margin:auto;background:var(--cream);min-height:100dvh;padding:25px}.small-outline{background:white;border:1px solid #cddbe2;color:#477fa5;border-radius:14px;padding:8px 10px}
 </style></head><body><div id="toast"></div><div id="auth" style="display:none"></div><main class="app" id="app" style="display:none"><header><h1>貓咪健康日記 🐾</h1><div><button class="small" onclick="manageCats()">多貓管理 ⚙</button> <button class="small" onclick="logout()">登出</button></div></header><div class="cats" id="cats"></div><section id="content"></section></main><nav class="nav" id="nav"></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
 
-const URL='https://plwjjqjubpiecenuduvg.supabase.co';
+const SUPABASE_PROJECT_URL='https://plwjjqjubpiecenuduvg.supabase.co';
 const KEY='sb_publishable_JKRospE3mimBySPLUMlW9Q_RRsiM_Py';
-const db=window.supabase.createClient(URL,KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+const db=window.supabase.createClient(SUPABASE_PROJECT_URL,KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
 let user=null, data={}, selected=null, tab='today', careDate=localDate(), loading=false, signed={};
 const names={cats:'cats',foods:'foods',meals:'meals',water:'water_records',supplements:'supplements',schedules:'supplement_schedules',logs:'supplement_logs',dental:'dental_records',eliminations:'elimination_records',health:'health_records'};
 const $=id=>document.getElementById(id);
